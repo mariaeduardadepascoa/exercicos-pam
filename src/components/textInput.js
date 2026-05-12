@@ -15,6 +15,7 @@ export default function TextInputMeu({ navigation }) {
 
 
     return (
+        <View style={styles.container}>
         <View style={styles.container2}>
             <Text style={styles.title}>Usando Text-Input</Text>
             <TextInput
@@ -41,10 +42,18 @@ export default function TextInputMeu({ navigation }) {
                 <Text style={styles.buttonInputText}>Ir para cálculo de média</Text>
             </TouchableOpacity>
         </View>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#3e3e3e',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    
     container2: {
         backgroundColor: '#232323',
         alignItems: 'center',

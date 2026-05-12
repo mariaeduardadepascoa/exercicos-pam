@@ -9,6 +9,7 @@ export default function Contador({ navigation }) {
     const [contador, setContador] = useState(0);
 
     return (
+        <View style={styles.container}>
         <View style={styles.grupoDiv}>
             <Text style={styles.title}>Contador = {contador}</Text>
 
@@ -24,11 +25,19 @@ export default function Contador({ navigation }) {
                 <Text style={styles.titleButtons}>Resetar</Text>
             </TouchableOpacity>
         </View>
+        </View>
 
     );
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#3e3e3e',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
     grupoDiv: {
         gap: 35,
         alignItems: 'center',

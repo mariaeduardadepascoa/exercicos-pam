@@ -3,32 +3,37 @@ import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity, Image } fr
 import { StatusBar } from 'expo-status-bar';
 import Contador from './src/components/contador';
 import TextInputMeu from './src/components/textInput';
-// import { NavigationContainer } from '@react-navigation/native';
-// import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function App() {
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
+
+function TelaInicial({navigation}) {
   return (
     <View style={styles.container}>
+      <Text style={{ color: '#fff', textAlign: 'center', fontSize: 18, fontWeight: 700, paddingBottom: 50}}>App com todos os exercícios da aula de Programação Mobile (PAM)</Text>
       <View style={styles.miniContainer}>
 
         <View style={styles.cards}>
           <View style={styles.title}>
-            <Text style={{color: '#fff', textAlign: 'center', fontSize: 14, fontWeight: 700, height: 25}}>Contador</Text>
+            <Text style={{ color: '#fff', textAlign: 'center', fontSize: 14, fontWeight: 700, height: 25 }}>Contador</Text>
           </View>
           <View style={styles.subtitle}>
-            <Text style={{color: '#fff', textAlign: 'center', fontSize: 12, height: 50, width: 120}}>Contador com o intuito de treinar o uso do useState</Text>
+            <Text style={{ color: '#fff', textAlign: 'center', fontSize: 12, height: 50, width: 120 }}>Contador com o intuito de treinar o uso do useState</Text>
           </View>
-          <View style={styles.button}><Text style={{color: '#fff', textAlign: 'center'}}>Testar</Text></View>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Tela - contador')}> <Text style={{ color: '#fff', textAlign: 'center' }}>Testar</Text></TouchableOpacity>
         </View>
 
         <View style={styles.cards}>
           <View style={styles.title}>
-            <Text style={{color: '#fff', textAlign: 'center', fontSize: 14, fontWeight: 700, height: 25}}>Nome e Média</Text>
+            <Text style={{ color: '#fff', textAlign: 'center', fontSize: 14, fontWeight: 700, height: 25 }}>Nome e Média</Text>
           </View>
           <View style={styles.subtitle}>
-            <Text style={{color: '#fff', textAlign: 'center', fontSize: 12, height: 50, width: 120}}>Exibir o nome completo do usuário + calcular sua média</Text>
+            <Text style={{ color: '#fff', textAlign: 'center', fontSize: 12, height: 50, width: 120 }}>Exibir o nome completo do usuário + calcular sua média</Text>
           </View>
-          <View style={styles.button}><Text style={{color: '#fff', textAlign: 'center'}}>Testar</Text></View>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Tela - textInput')}><Text style={{ color: '#fff', textAlign: 'center' }}>Testar</Text></TouchableOpacity>
+
         </View>
 
       </View>
@@ -36,6 +41,17 @@ export default function App() {
       {/* <TextInputMeu /> */}
       <StatusBar style="auto" />
     </View>
+  );
+}
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Início" screenOptions={{ headerStyle: { backgroundColor: '#232323' }, headerTintColor: '#fff',}}>
+        <Stack.Screen name="Início" component={TelaInicial}/>
+        <Stack.Screen name="Tela - contador" component={Contador}/>
+        <Stack.Screen name="Tela - textInput" component={TextInputMeu}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
