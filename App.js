@@ -22,7 +22,7 @@ function TelaInicial({navigation}) {
           <View style={styles.subtitle}>
             <Text style={{ color: '#fff', textAlign: 'center', fontSize: 12, height: 50, width: 120 }}>Contador com o intuito de treinar o uso do useState</Text>
           </View>
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Tela - contador')}> <Text style={{ color: '#fff', textAlign: 'center' }}>Testar</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Contador')}> <Text style={{ color: '#fff', textAlign: 'center' }}>Testar</Text></TouchableOpacity>
         </View>
 
         <View style={styles.cards}>
@@ -32,7 +32,7 @@ function TelaInicial({navigation}) {
           <View style={styles.subtitle}>
             <Text style={{ color: '#fff', textAlign: 'center', fontSize: 12, height: 50, width: 120 }}>Exibir o nome completo do usuário + calcular sua média</Text>
           </View>
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Tela - textInput')}><Text style={{ color: '#fff', textAlign: 'center' }}>Testar</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Nome e Média')}><Text style={{ color: '#fff', textAlign: 'center' }}>Testar</Text></TouchableOpacity>
 
         </View>
 
@@ -46,10 +46,10 @@ function TelaInicial({navigation}) {
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Início" screenOptions={{ headerStyle: { backgroundColor: '#232323' }, headerTintColor: '#fff',}}>
-        <Stack.Screen name="Início" component={TelaInicial}/>
-        <Stack.Screen name="Tela - contador" component={Contador}/>
-        <Stack.Screen name="Tela - textInput" component={TextInputMeu}/>
+      <Stack.Navigator initialRouteName="Tela inicial" screenOptions={{ headerStyle: { backgroundColor: '#232323' }, headerTintColor: '#fff',}}>
+        <Stack.Screen name="Tela inicial" component={TelaInicial}/>
+        <Stack.Screen name="Contador" component={Contador}/>
+        <Stack.Screen name="Nome e Média" component={TextInputMeu}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
